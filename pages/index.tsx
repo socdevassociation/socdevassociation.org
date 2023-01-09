@@ -71,7 +71,7 @@ export default function Home() {
             alt=""
             className={classes.overlayImage}
           ></Image>
-          <Text className={classes.centeredText} order={2}>
+          <Text className={classes.centeredText}>
             Socialist Developers Association
           </Text>
         </div>
