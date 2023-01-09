@@ -1,11 +1,11 @@
 {
   "root": true,
+  "api": {
+    "projectId": "h5f2rcnd",
+    "dataset": "production"
+  },
   "project": {
     "name": "SocDevAssociation Site"
-  },
-  "api": {
-    "projectId": "8sobj1x4",
-    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
