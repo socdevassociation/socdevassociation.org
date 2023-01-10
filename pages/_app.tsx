@@ -32,7 +32,7 @@ export default function App(props: AppProps) {
             <Component {...pageProps} />
           </div>
 
-          {/* <SDAFooter></SDAFooter> */}
+          <SDAFooter></SDAFooter>
         </Flex>
       </MantineProvider>
     </>
