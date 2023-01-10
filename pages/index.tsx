@@ -10,7 +10,9 @@ import {
   Text,
 } from "@mantine/core";
 
-export default function Home() {
+import { createClient, groq } from "next-sanity";
+
+export default function Home({ posts }) {
   const useStyles = createStyles((theme) => ({
     imageTextOverlayContainer: {
       position: "relative",
@@ -36,7 +38,7 @@ export default function Home() {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      fontSize: "2rem",
+      fontSize: "2.25rem",
       fontWeight: "bold",
       width: "100%",
     },
@@ -49,25 +51,9 @@ export default function Home() {
       {/* <span className="text-4xl font-bold underline">SDA Next.js Template</span> */}
 
       <Center>
-        {/* <AspectRatio ratio={1 / 1} w="50%">
-          <BackgroundImage src="/sda-logo.svg">
-            <Center>
-              <Title py="xl" order={2}>
-                Socialist Developers Association
-              </Title>
-            </Center>
-          </BackgroundImage>
-        </AspectRatio> */}
-        {/* <Image src="/sda-logo.svg" maw={512} alt="">
-          <Center>
-            <Title py="xl" order={2}>
-              SDA
-            </Title>
-          </Center>
-        </Image> */}
         <div className={classes.imageTextOverlayContainer}>
           <Image
-            src="/sda-logo.svg"
+            src="/sda-fancy-logo.png"
             alt=""
             className={classes.overlayImage}
           ></Image>
@@ -78,4 +64,23 @@ export default function Home() {
       </Center>
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+    apiVersion: "2023-01-09",
+    useCdn: false,
+  });
+
+  const posts = await client.fetch(groq`*[_type == "post"[0..2]]`);
+
+  console.log("posts", posts);
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }

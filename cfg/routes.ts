@@ -15,6 +15,10 @@ export const routes: Route[] = [
     name: "Contact",
     href: "/contact",
   },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
 ];
 
 export interface Route {

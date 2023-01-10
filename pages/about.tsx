@@ -1,8 +1,12 @@
 import { Container, Title, Text, Space } from "@mantine/core";
+import Head from "next/head";
 
 export default function PageTwo() {
   return (
     <Container>
+      <Head>
+        <title>SDA - About</title>
+      </Head>
       <Title py="xl">About Us</Title>
 
       <Text lh={2} size="xl">

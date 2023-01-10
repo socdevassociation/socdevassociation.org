@@ -1,8 +1,12 @@
 import { Container, Title, Text } from "@mantine/core";
+import Head from "next/head";
 
 export default function OurWork() {
   return (
     <Container>
+      <Head>
+        <title>SDA - Our Work</title>
+      </Head>
       <Title py="xl">Our Work</Title>
       <Text lh={2} size="xl" pb="xl">
         A large part of our work is providing web services at no cost to other
